@@ -1,0 +1,22 @@
+{% extends 'food/base.html' %}
+{% block content %}
+{% for item in queryset  %}
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{item.item_image}}" class="img-fluid rounded-start" >
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{item.item_name}}</h5>
+          <p class="card-text">{{item.item_desc}}</p>
+          <a href="{% url 'food:item_detail' item.id %}" class="btn btn-primary btn-lg " tabindex="-1" role="button" aria-disabled="false">details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+    
+
+
+ {% endblock %}
